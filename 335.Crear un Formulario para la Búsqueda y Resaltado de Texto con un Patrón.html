@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de Texto con Patrones</title>
+    <style>
+        .encontrado{
+            background-color: #00FF00;
+        }
+    </style>
+</head>
+<body>
+    <form id="frmBuscar">
+        <textarea id="texto" cols="150" rows="10"></textarea>
+        <p>
+            Patròn bùdqueda: <input id="patron" type="text">
+        </p>
+
+    </form>
+
+    <button id="btnBuscar">Buscar y Resaltar</button>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('btnBuscar').onclick = function(){
+            let patron = document.getElementById('patron').value;
+            let re = new RegExp(patron, 'g');
+
+            let texto = document.getElementById('texto').value;
+
+            let resultado = texto.replace(re,'<span class="encontrado">$&</span>');
+
+            document.getElementById('resultado').innerHTML = resultado;
+
+        }
+    </script>
+</body>
+</html>
