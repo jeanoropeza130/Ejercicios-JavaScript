@@ -1,0 +1,35 @@
+<!--  Convertir un Objeto NodeList en un Objeto Array  -->>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir un Objeto NodeList en un Objeto Array</title>
+</head>
+<body>
+    <div>Python</div>
+    <div>JavaScript</div>
+    <div>Java</div>
+    <div>C#</div>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        let divs = document.querySelectorAll('div');
+        let resultado = document.getElementById('resultado');
+
+        let arregloDivs = [].slice.call(divs);
+        let contenido = '';
+
+        arregloDivs.forEach((div) => {
+            contenido += div.textContent + '<br>';
+        });
+
+        resultado.innerHTML = contenido;
+       
+    </script>
+</body>
+</html>
